@@ -4,7 +4,7 @@ const redux = require("redux"); // node 상의 import 라 require 를 사용할 
 // reducer 는 기존의 상태(state)와 action 값을 프로퍼티로 받는다.
 // 또, 무조건 새로운 상태(state)를 리턴해야함.
 
-const counterReducer = (state, action) => {
+const counterReducer = (state = { counter: 0 }, action) => {
   // 기존의 상태를 대체할 새로운 상태를 리턴함
   // 대부분의 애플리케이션에는 상태는 하나의 값 이상을 의미 하기 때문에,
   // 실제로는 객체인 경우가 많다.
@@ -35,3 +35,14 @@ const counterSubscriber = () => {
 // 리덕스가 데이터와 스토어의 값이 변경될떄마다 실행해줆
 // 중요한점은 countersubscriber 함수는 직접적으로 호출하지 않는다.
 store.subscribe(counterSubscriber);
+
+// node redux-demo.js 를 실행하면 counter 함수를 찾을 수 없다고 에러가 뿜음.
+// 이유는 저장소가 초기화할때 리덕스가 리듀서함수를 실행하는데 처음에 실행할때 state 의 초기값이 없어서 에러가 뿜음
+// state 프로퍼티에 기본값을 정해줘야함
+
+// 실행하면 counter는 1임 이유는 처음에 state가 0 부터 시작하고,  처음으로 실행될 때 1이 증가함.
+
+// swtich 를 이용해보자
+
+// 액션을 전송하는 함수
+store.dispatch({ type: "INCREMENT" });
