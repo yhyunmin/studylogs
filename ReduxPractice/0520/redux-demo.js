@@ -5,15 +5,25 @@ const redux = require("redux"); // node 상의 import 라 require 를 사용할 
 // 또, 무조건 새로운 상태(state)를 리턴해야함.
 
 const counterReducer = (state = { counter: 0 }, action) => {
+  if (action.type === "INCREMENT") {
+    return {
+      counter: state.counter + 1,
+    };
+  }
+  if (action.type === "DECREMENT") {
+    return {
+      counter: state.counter - 1,
+    };
+  }
   // 기존의 상태를 대체할 새로운 상태를 리턴함
   // 대부분의 애플리케이션에는 상태는 하나의 값 이상을 의미 하기 때문에,
   // 실제로는 객체인 경우가 많다.
-  return {
-    //counter: 0,
-    //이렇게 작성하는건 비현실적 counter 는 기존의 counter 값에서 + - 를 하는것이 맞다.
-    counter: state.counter + 1,
-    // 이양식이 기본적인 리듀서 함수의 모습.
-  };
+  return state;
+  //counter: 0,
+  //이렇게 작성하는건 비현실적 counter 는 기존의 counter 값에서 + - 를 하는것이 맞다.
+  // if문으로 통해 increment 타입을 받을때 증가해야하니 if문 밖에 return 은 state를 반환해야함
+  // counter: state.counter + 1,
+  // 이양식이 기본적인 리듀서 함수의 모습.
 };
 
 // store 설정
@@ -46,3 +56,6 @@ store.subscribe(counterSubscriber);
 
 // 액션을 전송하는 함수
 store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: "DECREMENT" });
+// 일반적으로 리덕스에서 리듀서 내부 다른액션은 다른일을 하는게 목표
+// 그래서 리듀서 함수 두번째 인자가 action인 이유 ( 여러 action 을 받기 위해 )
