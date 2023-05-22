@@ -6,6 +6,7 @@
   padding: 1rem;
   text-align: center;
   background-color: #f4f0fa;
+  transition: .8s all ease-in-out;
 }
 
 .control {

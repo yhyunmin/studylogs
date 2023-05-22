@@ -1,29 +1,7 @@
 import { createStore } from "redux";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
-
-const initialState = {
-  counter: 0,
-  show: true,
-};
-const counterSlice = createSlice({
-  name: "counter",
-  initialState,
-  reducers: {
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increase(state, action) {
-      //payload이름이 고정 (redux/toolkit)
-      state.counter = state.counter + action.payload;
-    },
-    toggle(state) {
-      state.show = !state.show;
-    },
-  },
-});
+import authReducer from "./Auth";
+import counterReducer from "./Counter";
 // export const INCREMENT = "increment";
 //
 // const counterReducer = (state = initialState, action) => {
@@ -54,11 +32,10 @@ const counterSlice = createSlice({
 // 객체안의 키값은 reducer(단수) 로, 또 객체로 받아와서 원하는 프로퍼티 키이름으로 지정후 해당하는 리듀서함수를 밸류로 한다.
 const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer,
-    test: null,
+    counter: counterReducer,
+    auth: authReducer,
   },
 });
 // 액션값을 export해준다.
-export const counterAction = counterSlice.actions;
 
 export default store;

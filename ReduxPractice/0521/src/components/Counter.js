@@ -1,6 +1,6 @@
 import classes from "./Counter.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { counterAction } from "../store";
+import { counterAction } from "../store/Counter";
 
 const Counter = () => {
   // state 값을 가져왔다 생각하면됨
