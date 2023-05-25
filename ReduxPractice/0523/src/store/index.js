@@ -13,7 +13,7 @@ const store = configureStore({
   },
 });
 
-export const cartAction = cartSlice.actions;
+// export const cartAction = cartSlice.actions;
 export const cart2Action = cartSlice2.actions;
 export const showCartAction = showCartSlice.actions;
 

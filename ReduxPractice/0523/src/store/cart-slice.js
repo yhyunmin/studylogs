@@ -3,16 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   items: [],
   totalQuantity: 0,
+  changed: false,
 };
 const cartSlice2 = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    replaceCart(state, action) {
+      state.totalQuantity = action.payload.totalQuantity;
+      state.items = action.payload.items;
+    },
     addItemToCart(state, action) {
+      console.log(action.payload);
       //dispatch에서 가져오는 스테이트를 newItem 으로 지정
       const newItem = action.payload;
       // initialState 에 이미 있는지 확인
       const existingItem = state.items.find((item) => item.id === newItem.id);
+      state.changed = true;
       state.totalQuantity++;
       // 중복안됐다면 추가작업
       if (!existingItem) {
