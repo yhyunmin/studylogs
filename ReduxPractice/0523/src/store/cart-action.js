@@ -22,6 +22,9 @@ export const fetchCartData = () => {
       console.log("test2");
       dispatch(
         cart2Action.replaceCart({
+          // 프로덕트를 장바구니에 추가할 때
+          // 빈 장바구니일 때 find .id 를 할 수없어서 (undefined 상태) 장바구니 추가할 떄마다 에러가 뿜음
+          // 해결방법 : 서버에서 장바구니를 가져올때 빈 장바구니일경우 빈배열을 만들어주는 객체로 생성
           items: cartData.items || [],
           totalQuantity: cartData.totalQuantity,
         })
