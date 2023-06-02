@@ -263,7 +263,7 @@ function typeCheck2(a: P | O | I) {
 
 const human = { type: "human", talk() {} };
 const dog = { type: "dog", bow() {} };
-const cat = { type: "cat", meow() {} };
+const cat1 = { type: "cat", meow() {} };
 
 // 타입을 달아주지않았다면 in 으로 찾기
 if ('talk' in params)
