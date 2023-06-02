@@ -100,3 +100,15 @@ const updatedArray2 = genericInsertAtBeginning(demoArray2, -1);
 const stringArray = genericInsertAtBeginning(["a", "b", "c"], "d");
 // Ts 가 자동적으로 genericInsertAtBeginning 함수의 타입을 추론해 준다.
 // 제네릭 타입은 유연하게 어떤 타입이든 사용할 수있지만, 특정 타입이 추론되면 고정이 된다. ( any 와 다름 )
+
+// let numbers = [1, 2, 3];
+let numbers: number[] = [1, 2, 3];
+// 이것은 숫자의 배열이라고 명시
+// 하지만 number[] 은 설탕이고 원래는 Array
+
+let numbers2: Array<number> = [1, 2, 3];
+
+// 실제론 Array도 제네릭 유형
+
+const stringArray2 = genericInsertAtBeginning<string>(["a", "b", "c"], "d");
+// 처럼 제네릭 유형을 정의 할 수 있다. TS 가 유형을 유추할 수 없는경우에 필요함
