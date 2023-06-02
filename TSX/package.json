@@ -1,0 +1,15 @@
+{
+  "name": "tsx",
+  "version": "1.0.0",
+  "description": "* 타입스크립트는 자바스크립트의 수퍼셋 언어 (확장)\r * 자바스크립트는 동적 타입기능 이었고 ts에서는 정적타입 기능 추가\r ```js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.1.3"
+  }
+}
