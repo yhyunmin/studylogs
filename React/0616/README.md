@@ -93,4 +93,27 @@ const Animation = keyframes`
 `
 ```
 
-##
+## 스타일 가변적 대응
+태그를 바꾸게되면 ( span -> p ) css상에서 선택자를   
+styledcomponent의 컴포넌트명으로 지을 수 있다.
+```js
+
+const Emoji = styled.span`
+  font-size: 36px;
+`;
+const Box = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ${oneRound} 1s ease-in-out forwards;
+  
+  ${Emoji}:hover {
+    font-size: 98px;
+  }
+`;
+
+```
+Emoji가 p,span,div 상관없이 font-size:98px이 작동한다.
