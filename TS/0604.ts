@@ -49,4 +49,20 @@ const fulfilled = promises.filter(isFulfilled);
 
 export {};
 
-//
+// {}와 Object
+
+// 빈객체타입과 대문자오 오브젝트
+const x: {} = "hello";
+const y: Object = "hi"; // {},Object 는 모든 타입 ( null 과 undefined 제외)
+//밑에가 실제 객체 (소문자 오브젝트 )
+const xx: object = "hi";
+const yy: object = { hello: "hi" }; // object 지양 하시고 interface,type,class 쓰자
+// unknown 은 any와 같이 모든값을 받아올수 있지만 나중에 타입을 지정해줘야한다 ( any 말고 이거 쓰기 )
+const z: unknown = "hi";
+
+// unknown = {} | null | undefined **
+if (z) {
+  z; // const z : {};
+} else {
+  z; // const z : unknown;
+}
