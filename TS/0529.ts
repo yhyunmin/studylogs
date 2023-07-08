@@ -17,8 +17,8 @@ const ODirection = {
 
 // "as const " as const 를 붙이면 ts 에서 추론을 정확하게 해준다 / 상수 & readonly 로 객체값을 고정해준다.
 
-const a = EDirection.Up;
-const b = EDirection.Down;
+const aaaa = EDirection.Up;
+const bbbb = EDirection.Down;
 
 // 이넘은 직접 타입으로 사용할 수 있다.
 
