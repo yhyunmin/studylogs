@@ -46,3 +46,12 @@ b.forEach((item) => {
 // **
 // 타입스크립트는 코드에 발전에 따라 수정해가는것 / 모든것을 예상하기는 어렵다. !
 //
+
+const c: Arr<string | number> = ["1", 2, "3"];
+c.forEach((item) => {
+  console.log(item);
+  item.charAt(3);
+});
+c.forEach((item) => {
+  console.log(item);
+});
