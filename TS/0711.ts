@@ -6,7 +6,7 @@ function testFunc(x: string): number {
 }
 testFunc("1"); //1
 
-type testType = (x: string) => number | string;
+type testType = (x: string) => number | string; // (x:string)=>string, 또는 (x:string)=> number
 
 const testVar: testType = testFunc; // ?????????
 
@@ -16,4 +16,9 @@ const testVar: testType = testFunc; // ?????????
 // ** 리턴값은 더 넓은 타입으로 대입할 수 있다 .**
 // 하지만 반대로는 안됨
 
-let testLet: testType = testFunc;
+function testFunc2(x: string): number | string {
+  return +x;
+}
+type testType2 = (x: string) => number;
+
+const testVar2: testType2 = testFunc2; // 반대로는 안되서 에러가 남
