@@ -41,3 +41,10 @@ const newMe: Partial<Profile> = {
 // }
 
 // Partial 은 ts 내부유틸리티 타입이지만 직접만들어보기
+
+// @ts-ignore
+// 인덱스 시그니처는 객체가 여러 Key를 가질 수 있고 ,Key와 매핑되는 Value를 가지는 경우
+type P<T> = {
+  [Key: string]: string; // index signature 인덱스 시그니처
+  [Key in keyof Name]: string;
+};
