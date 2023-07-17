@@ -41,3 +41,14 @@ const testVar3: testType3 = testFunc3; // 매개변수가 더좁은 함수이지
 // 넓은타입에는 들어가지못한다 (string =/> number|string)
 
 // i.e ) return 값은 넓은 타입에 대입 되고, 매개변수는 좁은 타입에 대입이 된다.
+
+// 완성형 예제
+// @ts-ignore
+
+function test(x: string | number): number {
+  return 0;
+}
+type test = (x: string) => number | string;
+
+// @ts-ignore
+const test2: test = test;
