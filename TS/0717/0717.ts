@@ -87,14 +87,14 @@ declare const axios: Axios;
   try {
     await axios.get();
   } catch (err: unknown) {
+    const customError = err as CustomError;
     // interface에서는 response 가 옵셔널이지만
     console.error((err as CustomError).response.data);
     // 여기서는 옵셔널이아니라고 했기때문에, TS가 잡아주는 모습
     console.error((err as CustomError).response?.data);
     //위에서 err as CustomError라 하였지만, 못잡는모습 (as는 1회성 )
-    err.reponse?.data;
+    // err.reponse?.data;
     // as를 자주사용할것 같으면, 변수에 지정해준다
-    const customError = err as CustomError;
     customError.response?.data;
   }
 })();

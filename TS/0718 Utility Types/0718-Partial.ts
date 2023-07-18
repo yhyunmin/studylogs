@@ -43,7 +43,38 @@ const newMe: Partial<Profile> = {
 // Partial 은 ts 내부유틸리티 타입이지만 직접만들어보기
 
 // 인덱스 시그니처는 객체가 여러 Key를 가질 수 있고 ,Key와 매핑되는 Value를 가지는 경우
-type Pd<T> = {
-  [Key: string]: string; // index signature 인덱스 시그니처
-  [Key in keyof Profile]?: string; // keyof: 객체 형태의 타입, 속성들만 뽑아서 유니온 타입으로 만들어줌
+// type Pd<T> = {
+//   [Key: string]: string; // index signature 인덱스 시그니처
+//   [Key in keyof Profile]?: T// keyof: 객체 형태의 타입, 속성들만 뽑아서 유니온 타입으로 만들어줌
+// };
+
+type Pd2<T> = {
+  [Key in keyof T]?: T[Key];
 };
+
+type breed = "Human" | "Animal";
+type PP<T> = {
+  [key in keyof breed]: string;
+};
+
+//interface Profile {
+//   name: string;
+//   age: number;
+//   married: boolean;
+// }
+// type Name = Profile['name'];
+// 이때 key값은 설정했지만 , value의 타입설정은 까다롭다
+type CustomP<T> = {
+  // [key in keyof Profile]?: string; // name , age , married
+  [Key in keyof T]?: T[Key];
+};
+// 해석
+ P<Profile> {
+  // [Key in keyof T]?: T[Key];
+  name: string;
+  age: number;
+  married: boolean;
+}
+
+// Partial : T의 모든 속성을 Optional 로 만들어 주는 타입.
+// 단점은 모든 Key들을 Optional 로 만들어준다. (단점)
