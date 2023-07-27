@@ -35,3 +35,8 @@ all<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in key
 const arr = [1,2,3] as const;
 type Arr = keyof typeof arr;
 const key: Arr = 1;
+// [P in keyof T] = 0,1,2
+
+// Awaited<T[P]> : 배열
+// Awaited 가 then 을 해석하여 toString 까지 유추할수 있었던 법
+// T[P] // T[0],T[1],T[2] = p1,p2,p3
