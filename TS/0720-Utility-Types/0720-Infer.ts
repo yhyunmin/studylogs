@@ -48,3 +48,30 @@ type returnValue = getR<typeof zip>; // {x:number,y:string,z:boolean}
 
 type getParams = Parameters<typeof zip>;
 type getReturnValue = ReturnType<typeof zip>;
+
+// 어떤함수가있을때 리턴값과 매개변수의 타입을 자유자재로 사용할 수 있다.
+// 매개변수 하드코딩 할 이유가 없음
+
+// abstract new 생성자 모양
+
+class A {
+  a: string;
+  b: number;
+  c: boolean;
+  constructor(a: string, b: number, c: boolean) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+}
+const c = new A("123", 456, true);
+type C = ConstructorParameters<typeof A>; // 생성자의 타입을 얻어오고 싶을 때
+type I = InstanceType<typeof A>;
+
+// class는 타입 그대로 사용 할 수 있다.
+// A라는 타입
+const a: A = new A("123", 456, true); // 정확히는 Instance
+
+// new() 로 만들어낸 애들이 Instance임
+
+// 생성자 타입 만들때는 typeof 클래스가 생성자
