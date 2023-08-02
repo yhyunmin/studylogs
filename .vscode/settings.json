@@ -1,0 +1,9 @@
+{
+  "editor.fontSize": 20,
+  "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "compile-hero.disable-compile-files-on-did-save-code": false,
+  "editor.wordWrap": "on"
+}
