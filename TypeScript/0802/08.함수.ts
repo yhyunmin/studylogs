@@ -13,4 +13,3 @@ square(true); // 에러가 안나는 모습
 function greet(person:string) {
   console.log(`Hello, ${person}`);
 }
-App
